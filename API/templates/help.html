@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>API Documentation</h1>
+    <p>
+        Welcome to the API documentation of our Machine Learning application about the Wine Quality.
+    </p>
+    <p>
+        This API will help you choose a better quality wine.
+    </p>
+    <div>
+        <p>
+            This criterion allows you to make a quality wine prediction with the characteristics you enter (e.g.
+            Alcohol, Chlorides, pH)
+        </p>
+        <strong>Requests with tempaltes:</strong> <br><br>
+        <p>
+            Just click on the "predict" button after entering the data <br>
+            The predict button will use the POST method to communicate with the API.
+        </p>
+        <p>
+            Example: Enter the data and click on "Predict".
+        </p>
+        <p>
+            For example, it returns a message 'This wine is of quality: 6.0 / 10'.
+        <p>
+    </div>
+    <strong>requests with python packge :</strong> <br><br>
+
+    <code style="font-size:14px"> import requests<br>
+                               response = requests.post("http://localhost:5000/api",<br> 
+                               json={ "input": [[6.6,0.16,0.4,1.5,0.044,48,143,0.9912,3.54,0.52,12.4]]})<br>
+                               print(response.json())<br><br>
+                           <i><strong>Expected output:</strong><br>
+                           <i>{'predictions': [7.0]}</i></code><br><br>
+
+    <strong>requests with python packge and multiple inputs :</strong> <br><br>
+
+    <code style="font-size:14px"> import requests<br>
+                                                      response = requests.post("http://localhost:5000/api",<br> 
+                                                      json={ "input": [[7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8],
+                                                      [6.6,0.16,0.4,1.5,0.044,48,143,0.9912,3.54,0.52,12.4]]})<br>
+                                                      print(response.json())<br><br>
+                                                  <i><strong>Expected output:</strong><br>
+                                                  <i>{'predictions': [6.0,7.0]}</i></code><br><br>
+    <strong>requests with Bash/Curl :</strong> <br><br>
+
+    <code style="font-size:14px">
+                                                      curl -i -H "Content-Type: application/json" -X POST -d '{"input": [[7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]]}' http://localhost:5000/api
+                                                      <br><br>
+                                                  <i><strong>Expected output:</strong><br>
+                                                  <i>{
+                                                    "predictions": [
+                                                      6.0
+                                                    ]
+                                                  }
+                                                  </i></code>
+</body>
+</body>
+
+</html>

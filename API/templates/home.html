@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WINE API </title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="contact-container">
+        <div class="left-col">
+            <img class="logo" src="https://wallpapercave.com/wp/XCaycvV.jpg" />
+        </div>
+        <div class="right-col">
+            <h1>Wine API</h1>
+            <h2>Welcome !!</h2>
+            <h3><a href="help">Need a help ?</a></h3>
+            <p> This API will help you to choose a better quality wine.</p>
+                
+
+                <h1 id="success-msg"> {{pred}}</h1>
+
+            <form id="contact-form" action="{{ url_for('predict')}}" method="POST">
+                <label for="fixed_acidity">fixed acidity</label>
+                <input type="text" name="fixed_acidity" required="required" /><br>
+                
+                <label for="fixed_acidity">fixed_acidity</label>
+                <input type="text" name="volatile_acidity"  required="required" /><br>
+                
+                <label for="citric_acid">citric acid</label>
+                <input type="text" name="citric_acid"  required="required" /><br>
+                
+                <label for="total_sulfur_dioxide">total sulfur dioxide</label>
+                <input type="text" name="total_sulfur_dioxide"  required="required" /><br>
+                
+                <label for="density">density</label>
+                <input type="text" name="density"  required="required" /><br>
+                
+                <label for="pH">pH</label>
+                <input type="text" name="pH" required="required" /><br>
+                
+                <label for="fixed_acidity">fixed acidity</label>
+                <input type="text" name="sulphates" required="required" /><br>
+                
+                <label for="alcohol">alcohol</label>
+                <input type="text" name="alcohol" required="required" /><br>
+                
+                <label for="residual_sugar">residual sugar</label>
+                <input type="text" name="residual_sugar" required="required" /><br>
+                
+                <label for="chlorides">chlorides</label>
+                <input type="text" name="chlorides" required="required" /><br>
+                
+                <label for="free_sulfur_dioxide">free sulfur dioxide</label>
+                <input type="text" name="free_sulfur_dioxide" required="required" /><br>
+
+                <button type="submit" id="submit" >Predict</button>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
